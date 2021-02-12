@@ -204,6 +204,18 @@ std::string VectorFloat::get_str() const
     return str;
 }
 
+// Member operator functions
+VectorFloat& VectorFloat::operator<<(int shift_amount)
+{
+    this->m_exponent -= shift_amount;
+    return *this;
+}
+VectorFloat& VectorFloat::operator>>(int shift_amount)
+{
+    this->m_exponent += shift_amount;
+    return *this;
+}
+
 // ###FRIEND FUNCTIONS:### (not inside the class)
 // Overloaded operators
 VectorFloat operator+(const VectorFloat &VF1, const VectorFloat &VF2)

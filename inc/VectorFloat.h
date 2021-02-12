@@ -27,7 +27,6 @@ private:
     VectorFloat &subtract_VF(const VectorFloat &add_num, bool flip_signs = false);
 
 public:
-
     // Static class parameter for the number of sigfigs when dividing
     static int s_div_sigfigs;
 
@@ -58,6 +57,10 @@ public:
     double get_dbl() const;
     std::string get_str() const;
 
+    // Member operator functions
+    VectorFloat& operator<<(int shift_amount);
+    VectorFloat& operator>>(int shift_amount);
+
     // Friend functions
     friend VectorFloat operator+(const VectorFloat &VF1, const VectorFloat &VF2);
     friend VectorFloat operator-(const VectorFloat &VF1, const VectorFloat &VF2);
@@ -74,7 +77,7 @@ public:
     friend bool operator<(const VectorFloat &VF1, const VectorFloat &VF2);
     friend bool operator>=(const VectorFloat &VF1, const VectorFloat &VF2);
     friend bool operator<=(const VectorFloat &VF1, const VectorFloat &VF2);
-    friend std::ostream& operator<< (std::ostream &out, const VectorFloat &VF);
+    friend std::ostream &operator<<(std::ostream &out, const VectorFloat &VF);
 
     // operator assist functions
     friend VectorFloat add_same_sign(const VectorFloat &VF1, const VectorFloat &VF2);
