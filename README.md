@@ -1,2 +1,3 @@
 # project-euler
-Storing project euler code
+Backing up code for Project Euler (projecteuler.net)
+Learning C++
