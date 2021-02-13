@@ -36,8 +36,7 @@ namespace UsefulFunctions
 
     void assertMsg(bool condition, std::string errMsg);
 
-    template <typename T>
-    void printVector(const std::vector<T> &vec);
+    void printVector(const std::vector<int> &vec);
 
     std::string boldText(std::string str);
 

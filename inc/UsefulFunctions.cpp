@@ -163,8 +163,7 @@ void uf::assertMsg(bool condition, std::string errMsg)
     }
 }
 
-template <typename T>
-void uf::printVector(const std::vector<T> &vec)
+void uf::printVector(const std::vector<int> &vec)
 {
     // Prints a vector. Eg. {1,2,3,4} prints: 1, 2, 3, 4, \n
     for (int j{0}; j < vec.size(); ++j)
