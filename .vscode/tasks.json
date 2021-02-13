@@ -8,9 +8,9 @@
                 "-g",
                 "-std=c++17",
                 "-I",
-                "${fileDirname}\\..\\inc",
+                "${workspaceFolder}\\inc",
                 "${file}",
-                "${fileDirname}\\..\\inc\\*.cpp",
+                "${workspaceFolder}\\inc\\*.cpp",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],
