@@ -56,6 +56,9 @@ public:
     int size() const;
     double get_dbl() const;
     std::string get_str() const;
+    bool get_sign() const;
+    int get_exponent() const;
+    std::vector<short> get_mantissa() const;
 
     // Member operator functions
     VectorFloat& operator<<(int shift_amount);

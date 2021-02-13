@@ -30,7 +30,6 @@ void VectorFloat::checkDigitLimits()
     }
     trimZeros();
 }
-
 void VectorFloat::trimZeros()
 {
     // Trim end zeros
@@ -60,16 +59,13 @@ void VectorFloat::trimZeros()
         m_exponent -= start_zeros;
     }
 }
-
 void VectorFloat::set_zero()
 { // Set this VF to the zero VF
     m_mantissa = {0};
     m_sign = true;
     m_exponent = 0;
 }
-
 // ###PUBLIC:###
-
 VectorFloat &VectorFloat::set(double input_num, int sig_figs)
 {
     // Convert a double to vector float form
@@ -101,7 +97,6 @@ VectorFloat &VectorFloat::set(double input_num, int sig_figs)
     round(sig_figs);
     return *this;
 }
-
 VectorFloat &VectorFloat::set(std::vector<short> input_mantissa, int input_exponent, bool input_sign)
 {
     // Set explicitly the mantissa exponent and sign of this number
@@ -122,7 +117,6 @@ VectorFloat &VectorFloat::set(std::vector<short> input_mantissa, int input_expon
     checkDigitLimits();
     return *this;
 }
-
 VectorFloat &VectorFloat::round(int sig_figs)
 {
     uf::assertMsg(sig_figs > 0, "Expected significant figures greater than 0");
@@ -139,7 +133,6 @@ VectorFloat &VectorFloat::round(int sig_figs)
         return *this;
     }
 }
-
 // Const access functions
 int VectorFloat::size() const
 {
@@ -147,7 +140,6 @@ int VectorFloat::size() const
     // Eg. the size of 1'402'000 in VF form is 4.
     return static_cast<int>(m_mantissa.size());
 }
-
 double VectorFloat::get_dbl() const
 {
     // Returns a double (can result in loss of precision when converting to double)
@@ -161,7 +153,6 @@ double VectorFloat::get_dbl() const
 
     return out_dbl;
 }
-
 std::string VectorFloat::get_str() const
 {
     std::string str;
@@ -203,14 +194,25 @@ std::string VectorFloat::get_str() const
     }
     return str;
 }
-
+bool VectorFloat::get_sign() const
+{
+    return m_sign;
+}
+int VectorFloat::get_exponent() const
+{
+    return m_exponent;
+}
+std::vector<short> VectorFloat::get_mantissa() const
+{
+    return m_mantissa;
+}
 // Member operator functions
-VectorFloat& VectorFloat::operator<<(int shift_amount)
+VectorFloat &VectorFloat::operator<<(int shift_amount)
 {
     this->m_exponent -= shift_amount;
     return *this;
 }
-VectorFloat& VectorFloat::operator>>(int shift_amount)
+VectorFloat &VectorFloat::operator>>(int shift_amount)
 {
     this->m_exponent += shift_amount;
     return *this;
