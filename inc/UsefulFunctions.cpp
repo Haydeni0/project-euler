@@ -74,6 +74,22 @@ std::tuple<std::vector<int>, std::vector<int>> uf::findPrimeFactors(long long n)
     return {prime_list, prime_count};
 }
 
+bool uf::isPrime(int n)
+{
+    if (n <= 3)
+        return n > 1;
+    if (n % 2 == 0 || n % 3 == 0)
+        return false;
+    int i{5};
+    while (pow(i, 2) <= n)
+    {
+        if (n % i == 0 or n % (i + 2) == 0)
+            return false;
+        i += 6;
+    }
+    return true;
+}
+
 std::ifstream uf::loadFile(std::string filepath)
 {
     // Outputs an std::ifstream variable for the chosen file, after verifying the file has been loaded successfully.

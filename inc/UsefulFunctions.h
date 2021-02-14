@@ -25,6 +25,8 @@ namespace UsefulFunctions
 
     std::tuple<std::vector<int>, std::vector<int>> findPrimeFactors(long long n);
 
+    bool isPrime(int n);
+
     std::ifstream loadFile(std::string filepath);
 
     void veryLongMultiply(std::vector<short> &digits_out, long long multiplier);
