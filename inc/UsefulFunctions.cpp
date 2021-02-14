@@ -81,7 +81,7 @@ bool uf::isPrime(int n)
     if (n % 2 == 0 || n % 3 == 0)
         return false;
     int i{5};
-    while (pow(i, 2) <= n)
+    while (i*i <= n)
     {
         if (n % i == 0 or n % (i + 2) == 0)
             return false;
