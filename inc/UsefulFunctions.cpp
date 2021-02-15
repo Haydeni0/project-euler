@@ -1,6 +1,6 @@
 #include "UsefulFunctions.h"
 
-template <typename T>
+template <class T>
 std::vector<T> uf::findFactors(T n, bool find_proper)
 {
     // Lists all the factors of n.
@@ -81,13 +81,24 @@ bool uf::isPrime(int n)
     if (n % 2 == 0 || n % 3 == 0)
         return false;
     int i{5};
-    while (i*i <= n)
+    while (i * i <= n)
     {
         if (n % i == 0 or n % (i + 2) == 0)
             return false;
         i += 6;
     }
     return true;
+}
+
+template <class T>
+bool uf::inVector(const T find_var, const std::vector<T> &vec)
+{ // If find_var is an element of vec, return true.
+    for (auto elem : vec)
+    {
+        if (find_var == elem)
+            return true;
+    }
+    return false;
 }
 
 std::ifstream uf::loadFile(std::string filepath)
@@ -159,7 +170,7 @@ void uf::veryLongAdd(std::vector<short> &digits_out, const std::vector<short> &n
     }
 }
 
-template <typename T>
+template <class T>
 void uf::printBackwardsDigits(const std::vector<T> &digits)
 {
     for (int j{static_cast<int>(digits.size()) - 1}; j >= 0; --j)
@@ -179,7 +190,8 @@ void uf::assertMsg(bool condition, std::string errMsg)
     }
 }
 
-void uf::printVector(const std::vector<int> &vec)
+template <class T>
+void uf::printVector(const std::vector<T> &vec)
 {
     // Prints a vector. Eg. {1,2,3,4} prints: 1, 2, 3, 4, \n
     for (int j{0}; j < vec.size(); ++j)
@@ -193,7 +205,7 @@ std::string uf::boldText(std::string str)
     return "\033[1;31m" + str + "\033[0m";
 }
 
-template <typename T>
+template <class T>
 long long uf::sumVector(const std::vector<T> &vec)
 {
     // Sums a vector. Make sure the input is some sort of number.
@@ -207,3 +219,7 @@ std::string uf::short2string(const short sh)
 {
     return std::to_string(static_cast<int>(sh));
 }
+
+// Instantiate templates
+template bool uf::inVector<int>(const int find_var, const std::vector<int> &vec);
+template void uf::printVector<int>(const std::vector<int> &vec);

@@ -20,12 +20,15 @@
 namespace UsefulFunctions
 {
 
-    template <typename T>
+    template <class T>
     std::vector<T> findFactors(T n, bool find_proper = 0);
 
     std::tuple<std::vector<int>, std::vector<int>> findPrimeFactors(long long n);
 
     bool isPrime(int n);
+
+    template <class T>
+    bool inVector(const T find_var, const std::vector<T> &vec);
 
     std::ifstream loadFile(std::string filepath);
 
@@ -33,7 +36,7 @@ namespace UsefulFunctions
 
     void veryLongAdd(std::vector<short> &digits_out, const std::vector<short> &num_add);
 
-    template <typename T>
+    template <class T>
     void printBackwardsDigits(const std::vector<T> &digits);
 
     void assertMsg(bool condition, std::string errMsg);
@@ -42,7 +45,7 @@ namespace UsefulFunctions
 
     std::string boldText(std::string str);
 
-    template <typename T>
+    template <class T>
     long long sumVector(const std::vector<T> &vec);
 
     std::string short2string(const short sh);
