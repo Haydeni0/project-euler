@@ -35,8 +35,7 @@ namespace UsefulFunctions
 
     std::string boldText(std::string str);
 
-    template <class T>
-    long long sumVector(const std::vector<T> &vec);
+    std::string short2string(const short sh);
 
     // TEMPLATES
     template <class T>
@@ -63,10 +62,19 @@ namespace UsefulFunctions
         // Sums a vector. Make sure the input is some sort of number.
         long long total{0};
         for (int j{0}; j < vec.size(); ++j)
-            total += vec.at(j);
+            total += vec[j];
         return total;
     }
-    std::string short2string(const short sh);
+    template <class T>
+    long long multVector(const std::vector<T> &vec)
+    {
+        // Sums a vector. Make sure the input is some sort of number.
+        long long total{0};
+        for (int j{0}; j < vec.size(); ++j)
+            total *= vec[j];
+        return total;
+    }
+    
 } // namespace UsefulFunctions
 
 namespace uf = UsefulFunctions;
