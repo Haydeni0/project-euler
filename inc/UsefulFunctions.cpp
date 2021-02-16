@@ -158,14 +158,6 @@ void uf::veryLongAdd(std::vector<short> &digits_out, const std::vector<short> &n
     }
 }
 
-template <class T>
-void uf::printBackwardsDigits(const std::vector<T> &digits)
-{
-    for (int j{static_cast<int>(digits.size()) - 1}; j >= 0; --j)
-        std::cout << digits.at(j);
-    std::cout << "\n";
-}
-
 void uf::assertMsg(bool condition, std::string errMsg)
 {
     // An easy version of assert() that provides a message.

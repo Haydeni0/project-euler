@@ -31,9 +31,6 @@ namespace UsefulFunctions
 
     void veryLongAdd(std::vector<short> &digits_out, const std::vector<short> &num_add);
 
-    template <class T>
-    void printBackwardsDigits(const std::vector<T> &digits);
-
     void assertMsg(bool condition, std::string errMsg);
 
     std::string boldText(std::string str);
