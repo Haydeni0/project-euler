@@ -57,7 +57,7 @@ namespace UsefulFunctions
         return false;
     }
     template <class T>
-    long long sumVector(const std::vector<T> &vec)
+    long long vectorSum(const std::vector<T> &vec)
     {
         // Sums a vector. Make sure the input is some sort of number.
         long long total{0};
@@ -66,15 +66,22 @@ namespace UsefulFunctions
         return total;
     }
     template <class T>
-    long long multVector(const std::vector<T> &vec)
+    long long vectorProd(const std::vector<T> &vec)
     {
-        // Sums a vector. Make sure the input is some sort of number.
+        // Product of elements in the vector. Make sure the input is some sort of number.
         long long total{0};
         for (int j{0}; j < vec.size(); ++j)
             total *= vec[j];
         return total;
     }
-    
+    template <class T>
+    long long vectorMean(const std::vector<T> &vec)
+    {
+        // Mean of elements in a vector. Make sure the input is some sort of number.
+
+        return vectorSum(vec)/vec.size();
+    }
+
 } // namespace UsefulFunctions
 
 namespace uf = UsefulFunctions;

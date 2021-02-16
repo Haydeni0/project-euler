@@ -23,7 +23,7 @@ int main()
     int max_num{28123}; // 28123
     for (int j{1}; j <= max_num; ++j)
     {
-        long long sum{uf::sumVector(uf::findFactors(j, 1))};
+        long long sum{uf::vectorSum(uf::findFactors(j, 1))};
         if (j < sum)
             abundant_numbers.push_back(j);
     }

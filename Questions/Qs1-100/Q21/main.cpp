@@ -14,13 +14,13 @@ bool isAmicable(long long a)
     auto factor_list1{uf::findFactors(a)};
     factor_list1.erase(factor_list1.begin() + 1);
 
-    auto b{uf::sumVector(factor_list1)};
+    auto b{uf::vectorSum(factor_list1)};
     if (a == b)
         return false;
 
     auto factor_list2{uf::findFactors(b)};
     factor_list2.erase(factor_list2.begin() + 1);
-    if (a == uf::sumVector(factor_list2))
+    if (a == uf::vectorSum(factor_list2))
         return true;
     else
         return false;
