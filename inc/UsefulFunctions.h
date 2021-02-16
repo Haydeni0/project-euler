@@ -19,16 +19,11 @@
 
 namespace UsefulFunctions
 {
-
-    template <class T>
-    std::vector<T> findFactors(T n, bool find_proper = 0);
+    std::vector<int> findFactors(int n, bool find_proper = 0);
 
     std::tuple<std::vector<int>, std::vector<int>> findPrimeFactors(long long n);
 
     bool isPrime(int n);
-
-    template <class T>
-    bool inVector(const T find_var, const std::vector<T> &vec);
 
     std::ifstream loadFile(std::string filepath);
 
@@ -41,13 +36,39 @@ namespace UsefulFunctions
 
     void assertMsg(bool condition, std::string errMsg);
 
-    void printVector(const std::vector<int> &vec);
-
     std::string boldText(std::string str);
 
     template <class T>
     long long sumVector(const std::vector<T> &vec);
 
+    // TEMPLATES
+    template <class T>
+    void printVector(const std::vector<T> &vec)
+    {
+        // Prints a vector. Eg. {1,2,3,4} prints: 1, 2, 3, 4, \n
+        for (int j{0}; j < vec.size(); ++j)
+            std::cout << vec.at(j) << ", ";
+        std::cout << "\n";
+    }
+    template <class T>
+    bool inVector(const T find_var, const std::vector<T> &vec)
+    { // If find_var is an element of vec, return true.
+        for (auto elem : vec)
+        {
+            if (find_var == elem)
+                return true;
+        }
+        return false;
+    }
+    template <class T>
+    long long sumVector(const std::vector<T> &vec)
+    {
+        // Sums a vector. Make sure the input is some sort of number.
+        long long total{0};
+        for (int j{0}; j < vec.size(); ++j)
+            total += vec.at(j);
+        return total;
+    }
     std::string short2string(const short sh);
 } // namespace UsefulFunctions
 

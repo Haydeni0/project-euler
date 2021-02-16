@@ -1,11 +1,10 @@
 #include "UsefulFunctions.h"
 
-template <class T>
-std::vector<T> uf::findFactors(T n, bool find_proper)
+std::vector<int> uf::findFactors(int n, bool find_proper)
 {
     // Lists all the factors of n.
     // Eg. for n = 8, outputs: {1,8,2,4}
-    std::vector<T> factor_list;
+    std::vector<int> factor_list;
     if (n == 1)
     { // Exception for when n == 1
         factor_list = {1};
@@ -88,17 +87,6 @@ bool uf::isPrime(int n)
         i += 6;
     }
     return true;
-}
-
-template <class T>
-bool uf::inVector(const T find_var, const std::vector<T> &vec)
-{ // If find_var is an element of vec, return true.
-    for (auto elem : vec)
-    {
-        if (find_var == elem)
-            return true;
-    }
-    return false;
 }
 
 std::ifstream uf::loadFile(std::string filepath)
@@ -190,36 +178,13 @@ void uf::assertMsg(bool condition, std::string errMsg)
     }
 }
 
-template <class T>
-void uf::printVector(const std::vector<T> &vec)
-{
-    // Prints a vector. Eg. {1,2,3,4} prints: 1, 2, 3, 4, \n
-    for (int j{0}; j < vec.size(); ++j)
-        std::cout << vec.at(j) << ", ";
-    std::cout << "\n";
-}
-
 std::string uf::boldText(std::string str)
 {
     // Returns a formatted string
     return "\033[1;31m" + str + "\033[0m";
 }
 
-template <class T>
-long long uf::sumVector(const std::vector<T> &vec)
-{
-    // Sums a vector. Make sure the input is some sort of number.
-    long long total{0};
-    for (int j{0}; j < vec.size(); ++j)
-        total += vec.at(j);
-    return total;
-}
-
 std::string uf::short2string(const short sh)
 {
     return std::to_string(static_cast<int>(sh));
 }
-
-// Instantiate templates
-template bool uf::inVector<int>(const int find_var, const std::vector<int> &vec);
-template void uf::printVector<int>(const std::vector<int> &vec);
