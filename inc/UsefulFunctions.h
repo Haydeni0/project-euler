@@ -41,10 +41,11 @@ namespace UsefulFunctions
     template <class T>
     void printVector(const std::vector<T> &vec)
     {
-        // Prints a vector. Eg. {1,2,3,4} prints: 1, 2, 3, 4, \n
-        for (int j{0}; j < vec.size(); ++j)
-            std::cout << vec.at(j) << ", ";
-        std::cout << "\n";
+        // Prints a vector. Eg. {1,2,3,4} prints: {1, 2, 3, 4} \n
+        std::cout << "{";
+        for (int j{0}; j < vec.size() - 1; ++j)
+            std::cout << vec[j] << ", ";
+        std::cout << vec[vec.size() - 1] << "}\n";
     }
     template <class T>
     bool inVector(const T find_var, const std::vector<T> &vec)
@@ -79,7 +80,7 @@ namespace UsefulFunctions
     {
         // Mean of elements in a vector. Make sure the input is some sort of number.
 
-        return vectorSum(vec)/vec.size();
+        return vectorSum(vec) / vec.size();
     }
 
 } // namespace UsefulFunctions
