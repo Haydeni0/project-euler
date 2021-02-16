@@ -69,7 +69,7 @@ namespace UsefulFunctions
     long long vectorProd(const std::vector<T> &vec)
     {
         // Product of elements in the vector. Make sure the input is some sort of number.
-        long long total{0};
+        long long total{1};
         for (int j{0}; j < vec.size(); ++j)
             total *= vec[j];
         return total;
