@@ -82,7 +82,50 @@ namespace UsefulFunctions
 
         return vectorSum(vec) / vec.size();
     }
-
+    template <class T>
+    int vectorMinIndex(const std::vector<T> &vec)
+    {
+        // Return the index of the minimum value in the vector
+        // If the minimum is not unique, return the first of those.
+        T min{vec[0]};
+        int min_idx{0};
+        for (int j{1}; j < vec.size(); ++j)
+        {
+            if (vec[j] < min)
+            {
+                min = vec[j];
+                min_idx = j;
+            }
+        }
+        return min_idx;
+    }
+    template <class T>
+    T vectorMin(const std::vector<T> &vec)
+    {
+        return vec[vectorMinIndex(vec)];
+    }
+    template <class T>
+    int vectorMaxIndex(const std::vector<T> &vec)
+    {
+        // Return the index of the maximum value in the vector
+        // If the maximum is not unique, return the first of those.
+        T max{vec[0]};
+        int max_idx{0};
+        for (int j{1}; j < vec.size(); ++j)
+        {
+            if (vec[j] > max)
+            {
+                max = vec[j];
+                max_idx = j;
+            }
+        }
+        return max_idx;
+    }
+    template <class T>
+    T vectorMax(const std::vector<T> &vec)
+    {
+        return vec[vectorMaxIndex(vec)];
+    }
 } // namespace UsefulFunctions
 
 namespace uf = UsefulFunctions;
