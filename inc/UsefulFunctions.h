@@ -37,6 +37,8 @@ namespace UsefulFunctions
 
     std::string short2string(const short sh);
 
+    std::vector<int> int2digits(int x);
+
     // TEMPLATES
     template <class T>
     void printVector(const std::vector<T> &vec)

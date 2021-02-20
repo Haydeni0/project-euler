@@ -180,3 +180,16 @@ std::string uf::short2string(const short sh)
 {
     return std::to_string(static_cast<int>(sh));
 }
+
+std::vector<int> uf::int2digits(int x)
+{
+    x = abs(x);
+    int num_digits{static_cast<int>(log10(x) + 1)};
+    std::vector<int> digit_list(num_digits);
+    for (int j{0}; j < num_digits; ++j)
+    {
+        digit_list[j] = static_cast<int>(x / pow(10, num_digits - j - 1));
+        x -= digit_list[j] * pow(10,num_digits - j - 1);
+    }
+    return digit_list;
+}
