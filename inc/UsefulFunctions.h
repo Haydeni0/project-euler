@@ -60,6 +60,17 @@ namespace UsefulFunctions
         return false;
     }
     template <class T>
+    std::vector<int> findInVector(const T find_var, const std::vector<T> &vec)
+    { // Return indices of the elements of vec that are equal to find_var
+        std::vector<int> idx_list;
+        for (int j{0}; j < vec.size(); j++)
+        {
+            if (find_var == vec[j])
+                idx_list.push_back(j);
+        }
+        return idx_list;
+    }
+    template <class T>
     long long vectorSum(const std::vector<T> &vec)
     {
         // Sums a vector. Make sure the input is some sort of number.
