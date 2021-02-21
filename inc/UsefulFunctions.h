@@ -44,6 +44,11 @@ namespace UsefulFunctions
     void printVector(const std::vector<T> &vec)
     {
         // Prints a vector. Eg. {1,2,3,4} prints: {1, 2, 3, 4} \n
+        if (vec.size() == 0)
+        {
+            std::cout << "{}";
+            return;
+        }
         std::cout << "{";
         for (int j{0}; j < vec.size() - 1; ++j)
             std::cout << vec[j] << ", ";
