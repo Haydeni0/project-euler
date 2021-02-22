@@ -189,7 +189,18 @@ std::vector<int> uf::int2digits(int x)
     for (int j{0}; j < num_digits; ++j)
     {
         digit_list[j] = static_cast<int>(x / pow(10, num_digits - j - 1));
-        x -= digit_list[j] * pow(10,num_digits - j - 1);
+        x -= digit_list[j] * pow(10, num_digits - j - 1);
     }
     return digit_list;
+}
+
+int uf::digits2int(const std::vector<int> &vec)
+{
+    int num{0};
+    for (int j{(int)vec.size() - 1}; j >= 0; --j)
+    {
+        uf::assertMsg(vec[j] >=0, "Digits must be positive");
+        num += vec[j] * pow(10, vec.size() -1 - j);
+    }
+    return num;
 }
