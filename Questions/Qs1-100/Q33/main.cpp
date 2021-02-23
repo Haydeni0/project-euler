@@ -100,5 +100,7 @@ int main()
         frac_product *= elem;
     }
 
+    std::cout << frac_product.getStr();
+
     return 0;
 }
