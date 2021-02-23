@@ -199,8 +199,25 @@ int uf::digits2int(const std::vector<int> &vec)
     int num{0};
     for (int j{(int)vec.size() - 1}; j >= 0; --j)
     {
-        uf::assertMsg(vec[j] >=0, "Digits must be positive");
-        num += vec[j] * pow(10, vec.size() -1 - j);
+        uf::assertMsg(vec[j] >= 0, "Digits must be positive");
+        num += vec[j] * pow(10, vec.size() - 1 - j);
     }
     return num;
+}
+
+size_t uf::factorial(int n)
+{ // Factorial, returns n!. Can overflow if n is larger than 20.
+    uf::assertMsg(n >= 0, "n must be greater than or equal to zero.");
+    uf::assertMsg(n <= 20, "n is too large (> 20)");
+
+    if (n == 0)
+        return 1;
+
+    size_t n_factorial{1};
+    while (n > 1)
+    {
+        n_factorial *= n;
+        --n;
+    }
+    return n_factorial;
 }
