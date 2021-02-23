@@ -41,7 +41,7 @@ namespace UsefulFunctions
 
     int digits2int(const std::vector<int> &vec);
 
-    size_t factorial(int n);
+    int factorial(int n);
 
     // TEMPLATES
     // It's a lot easier to include function templates directly in this header file, as they can be initialised by the compiler for whichever variable type needed.

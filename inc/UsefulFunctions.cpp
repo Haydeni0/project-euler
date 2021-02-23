@@ -205,7 +205,7 @@ int uf::digits2int(const std::vector<int> &vec)
     return num;
 }
 
-size_t uf::factorial(int n)
+int uf::factorial(int n)
 { // Factorial, returns n!. Can overflow if n is larger than 20.
     uf::assertMsg(n >= 0, "n must be greater than or equal to zero.");
     uf::assertMsg(n <= 20, "n is too large (> 20)");
