@@ -205,6 +205,14 @@ int uf::digits2int(const std::vector<int> &vec)
     return num;
 }
 
+int uf::numDigits(int n)
+{
+    if (n == 0)
+        return 1;
+    else
+        return static_cast<int>(log10(abs(n)) + 1);
+}
+
 int uf::factorial(int n)
 { // Factorial, returns n!. Can overflow if n is larger than 20.
     uf::assertMsg(n >= 0, "n must be greater than or equal to zero.");

@@ -41,6 +41,8 @@ namespace UsefulFunctions
 
     int digits2int(const std::vector<int> &vec);
 
+    int numDigits(int n);
+
     int factorial(int n);
 
     // TEMPLATES
