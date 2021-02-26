@@ -229,3 +229,48 @@ int uf::factorial(int n)
     }
     return n_factorial;
 }
+
+bool uf::isPandigital(const std::vector<int> &vec, int max_digit)
+{ // Do the digits of the elements of vec make up only the numbers 1 to max_digit once?
+    uf::assertMsg(max_digit >= 1 && max_digit <= 9, "Maximum digit out of range");
+
+    std::vector<int> num_digits(vec.size());
+    for (int j{0}; j < vec.size(); ++j)
+    {
+        num_digits[j] = static_cast<int>(log10(vec[j])) + 1;
+    }
+
+    if (uf::vectorSum(num_digits) != max_digit)
+        return false;
+
+    for (int j{0}; j < vec.size(); ++j)
+    {
+        auto digits{uf::int2digits(vec[j])};
+        // If any numbers have a zero digits, return false
+        if (uf::inVector(0, digits))
+            return false;
+        // If any numbers have digits greater than max_digit, return false
+        for (int k{max_digit+1}; k <= 9; ++k)
+        {
+            if (uf::inVector(k, digits))
+                return false;
+        }
+    }
+
+    // Check that each digits occurs only once
+    std::vector<int> total_digit_list(max_digit);
+    int k{0};
+    for (int j{0}; j < vec.size(); ++j)
+    {
+        for (auto elem : uf::int2digits(vec[j]))
+        {
+            if (!uf::inVector(elem, total_digit_list))
+                total_digit_list[k++] = elem;
+            else
+                return false;
+        }
+    }
+
+    // If all the above goes through, the numbers are pandigital.
+    return true;
+}

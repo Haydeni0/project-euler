@@ -45,6 +45,8 @@ namespace UsefulFunctions
 
     int factorial(int n);
 
+    bool isPandigital(const std::vector<int> &vec, int max_digit = 9);
+
     // TEMPLATES
     // It's a lot easier to include function templates directly in this header file, as they can be initialised by the compiler for whichever variable type needed.
     // If included in a separate cpp file, then they would need to be manually initialised at the bottom for each necessary datatype and function.
