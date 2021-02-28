@@ -15,7 +15,6 @@
 #include <iterator>
 #include <numeric>
 #include <Eigen/Dense>
-#include "VectorFloat.h"
 
 namespace UsefulFunctions
 {
