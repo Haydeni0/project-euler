@@ -153,6 +153,46 @@ namespace UsefulFunctions
     {
         return vec[vectorMaxIndex(vec)];
     }
+    template <class T>
+    std::vector<size_t> sortPermutation(const std::vector<T> &vec, bool ascending = true)
+    { // Creates a permutation p that sorts vec into ascending or descending order
+        std::vector<std::size_t> p(vec.size());
+        std::iota(p.begin(), p.end(), 0);
+        std::sort(p.begin(), p.end(),
+                  [&ascending, &vec](std::size_t i, std::size_t j) {
+                      if (ascending)
+                          return vec[i] < vec[j];
+                      else
+                          return vec[i] > vec[j];
+                  });
+        return p;
+    }
+    template <class T>
+    void applySortPermutation(std::vector<T> &vec, const std::vector<size_t> &p)
+    { // Code from https://stackoverflow.com/questions/17074324/how-can-i-sort-two-vectors-in-the-same-way-with-criteria-that-uses-only-one-of
+        // Applies the sort permutation p to vec
+        assertMsg(vectorMax(p) < vec.size(), "Sort permutation is out of index of the vector");
+        assertMsg(p.size() == vec.size(), "Sort permutation is not the same size as the vector");
+        std::vector<bool> done(vec.size());
+        for (std::size_t i = 0; i < vec.size(); ++i)
+        {
+            if (done[i])
+            {
+                continue;
+            }
+            done[i] = true;
+            std::size_t prev_j = i;
+            std::size_t j = p[i];
+            while (i != j)
+            {
+                std::swap(vec[prev_j], vec[j]);
+                done[j] = true;
+                prev_j = j;
+                j = p[j];
+            }
+        }
+    }
+
 } // namespace UsefulFunctions
 
 namespace uf = UsefulFunctions;
