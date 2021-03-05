@@ -485,9 +485,12 @@ VectorFloat add_diff_sign(const VectorFloat &VF1, const VectorFloat &VF2)
 }
 VectorFloat mult_num(const VectorFloat &VF, const short num, const int exponent)
 {
-    // Function that multiplies the input VF by num (num > 0).
+    // Function that multiplies the input VF by num (num >= 0).
     // Modifies VF_out directly.
-    uf::assertMsg(num > 0, "Expected num > 0");
+    uf::assertMsg(num >= 0, "Expected num >= 0");
+
+    if (num == 0)
+    return VectorFloat(0);
 
     VectorFloat VF_temp{VF};
     VF_temp.m_exponent += exponent;
