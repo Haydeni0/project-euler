@@ -97,6 +97,32 @@ VectorFloat &VectorFloat::set(double input_num, int sig_figs)
     round(sig_figs);
     return *this;
 }
+VectorFloat &VectorFloat::set(int input_num)
+{
+    if (input_num < 0)
+    {
+        m_sign = false;
+        input_num *= -1;
+    }
+    else
+        m_sign = true;
+
+    if (input_num == 0)
+        set_zero();
+    else if (input_num >= 1) // Find exponent by logging and dropping the fractional part
+        m_exponent = static_cast<int>(log10(input_num));
+    else
+        m_exponent = static_cast<int>(log10(input_num) - 1);
+    
+    input_num *= pow(10, -m_exponent);
+    for (int j{0}; j < m_exponent + 1; ++j)
+    {
+        m_mantissa.push_back(static_cast<short>(input_num));
+        input_num -= m_mantissa[j];
+        input_num *= 10;
+    }
+    return *this;
+}
 VectorFloat &VectorFloat::set(std::vector<short> input_mantissa, int input_exponent, bool input_sign)
 {
     // Set explicitly the mantissa exponent and sign of this number
@@ -490,7 +516,7 @@ VectorFloat mult_num(const VectorFloat &VF, const short num, const int exponent)
     uf::assertMsg(num >= 0, "Expected num >= 0");
 
     if (num == 0)
-    return VectorFloat(0);
+        return VectorFloat(0);
 
     VectorFloat VF_temp{VF};
     VF_temp.m_exponent += exponent;

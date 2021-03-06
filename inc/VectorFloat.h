@@ -39,9 +39,9 @@ public:
         set(input_mantissa, input_exponent, input_sign);
     }
     // Find a better way to repeat this for int, template maybe#?
-    VectorFloat(int input_num, int sig_figs = DEFAULT_SIG_FIGS)
+    VectorFloat(int input_num)
     {
-        set(static_cast<int>(input_num), sig_figs);
+        set(input_num);
     }
     VectorFloat()
         : m_mantissa{0}, m_exponent{0}, m_sign{true}
@@ -49,6 +49,7 @@ public:
     }
 
     VectorFloat &set(double input_num, int sig_figs = DEFAULT_SIG_FIGS);
+    VectorFloat &set(int input_num);
     VectorFloat &set(std::vector<short> input_mantissa, int input_exponent = 0, bool input_sign = true);
     VectorFloat &round(int sig_figs);
 
