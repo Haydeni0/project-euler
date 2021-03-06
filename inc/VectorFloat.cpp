@@ -113,13 +113,14 @@ VectorFloat &VectorFloat::set(int input_num)
         m_exponent = static_cast<int>(log10(input_num));
     else
         m_exponent = static_cast<int>(log10(input_num) - 1);
-    
-    input_num *= pow(10, -m_exponent);
+
+    // input_num *= pow(10, -m_exponent);
+
     for (int j{0}; j < m_exponent + 1; ++j)
     {
-        m_mantissa.push_back(static_cast<short>(input_num));
-        input_num -= m_mantissa[j];
-        input_num *= 10;
+        int highest_exp{input_num * pow(10, -m_exponent + j)};
+        m_mantissa.push_back(static_cast<short>(highest_exp));
+        input_num -= highest_exp * pow(10, m_exponent - j);
     }
     return *this;
 }
