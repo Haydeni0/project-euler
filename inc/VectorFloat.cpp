@@ -2,6 +2,7 @@
 #include "UsefulFunctions.h"
 
 int VectorFloat::s_div_sigfigs = DEFAULT_DIV_SIGFIGS;
+int VectorFloat::s_float_sigfigs = DEFAULT_FLOAT_SIGFIGS;
 
 // ###PRIVATE:###
 void VectorFloat::checkDigitLimits()
@@ -66,64 +67,7 @@ void VectorFloat::set_zero()
     m_exponent = 0;
 }
 // ###PUBLIC:###
-VectorFloat &VectorFloat::set(double input_num, int sig_figs)
-{
-    // Convert a double to vector float form
-    if (input_num < 0)
-    {
-        m_sign = false;
-        input_num *= -1;
-    }
-    else
-        m_sign = true;
 
-    if (input_num >= 1) // Find exponent by logging and dropping the fractional part
-        m_exponent = static_cast<int>(log10(input_num));
-    else if (input_num == 0)
-    {
-        m_exponent = 0;
-        m_mantissa = {0};
-    }
-    else
-        m_exponent = static_cast<int>(log10(input_num) - 1);
-
-    input_num *= pow(10, -m_exponent);
-    for (int j{0}; j < sig_figs + 1; ++j)
-    {
-        m_mantissa.push_back(static_cast<short>(input_num));
-        input_num -= m_mantissa[j];
-        input_num *= 10;
-    }
-    round(sig_figs);
-    return *this;
-}
-VectorFloat &VectorFloat::set(int input_num)
-{
-    if (input_num < 0)
-    {
-        m_sign = false;
-        input_num *= -1;
-    }
-    else
-        m_sign = true;
-
-    if (input_num == 0)
-        set_zero();
-    else if (input_num >= 1) // Find exponent by logging and dropping the fractional part
-        m_exponent = static_cast<int>(log10(input_num));
-    else
-        m_exponent = static_cast<int>(log10(input_num) - 1);
-
-    // input_num *= pow(10, -m_exponent);
-
-    for (int j{0}; j < m_exponent + 1; ++j)
-    {
-        int highest_exp{input_num * pow(10, -m_exponent + j)};
-        m_mantissa.push_back(static_cast<short>(highest_exp));
-        input_num -= highest_exp * pow(10, m_exponent - j);
-    }
-    return *this;
-}
 VectorFloat &VectorFloat::set(std::vector<short> input_mantissa, int input_exponent, bool input_sign)
 {
     // Set explicitly the mantissa exponent and sign of this number
@@ -144,6 +88,7 @@ VectorFloat &VectorFloat::set(std::vector<short> input_mantissa, int input_expon
     checkDigitLimits();
     return *this;
 }
+
 VectorFloat &VectorFloat::round(int sig_figs)
 {
     uf::assertMsg(sig_figs > 0, "Expected significant figures greater than 0");
