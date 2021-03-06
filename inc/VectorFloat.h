@@ -13,7 +13,7 @@
 // A decimal floating point number.
 class VectorFloat
 {
-private:
+protected:
     // Make private, so there aren't any formatting issues with m_mantissa
     //      such as adding zeros to the end which can break things if not caught.
     std::vector<short> m_mantissa;
