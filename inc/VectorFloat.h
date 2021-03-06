@@ -102,9 +102,9 @@ public:
 
         for (int j{0}; j < m_exponent + 1; ++j)
         {
-            int highest_exp{static_cast<int>(input_num * pow(10, -m_exponent + j))};
+            T highest_exp{static_cast<int>(input_num * pow(10, -m_exponent + j))};
             m_mantissa.push_back(static_cast<short>(highest_exp));
-            input_num -= static_cast<int>(highest_exp * pow(10, m_exponent - j));
+            input_num -= static_cast<T>(highest_exp * pow(10, m_exponent - j));
         }
         return *this;
     }
