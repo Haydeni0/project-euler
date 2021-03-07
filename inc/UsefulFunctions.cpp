@@ -274,3 +274,23 @@ bool uf::isPandigital(const std::vector<int> &vec, int max_digit)
     // If all the above goes through, the numbers are pandigital.
     return true;
 }
+
+int uf::nextPrime(int n)
+{
+    if (n < 2)
+    {
+        return 2;
+    }
+    if (uf::isEven(n))
+    {
+        ++n;
+        if (uf::isPrime(n))
+            return n;
+    }
+    n += 2;
+    while (!uf::isPrime(n))
+    {
+        n += 2;
+    }
+    return n;
+}

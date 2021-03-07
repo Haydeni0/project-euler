@@ -46,6 +46,8 @@ namespace UsefulFunctions
 
     bool isPandigital(const std::vector<int> &vec, int max_digit = 9);
 
+    int nextPrime(int n);
+
     // CLASSES
     class UnorderedDigitID
     {
