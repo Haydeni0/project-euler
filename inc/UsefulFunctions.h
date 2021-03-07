@@ -46,6 +46,23 @@ namespace UsefulFunctions
 
     bool isPandigital(const std::vector<int> &vec, int max_digit = 9);
 
+    class UnorderedDigits
+    {
+    public:
+        // Stores the number of each digit in this ordered list:
+        // Eg. for an integer 14522999, m_digit_count = {0,1,2,0,1,1,0,0,0,3}
+        std::vector<size_t> m_digit_count{0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+
+        UnorderedDigits(int n)
+        {
+            std::vector<int> digit_list{int2digits(n)};
+            for (auto elem : digit_list)
+            {
+                m_digit_count[elem]++;
+            }
+        }
+    };
+
     // TEMPLATES
     // It's a lot easier to include function templates directly in this header file, as they can be initialised by the compiler for whichever variable type needed.
     // If included in a separate cpp file, then they would need to be manually initialised at the bottom for each necessary datatype and function.

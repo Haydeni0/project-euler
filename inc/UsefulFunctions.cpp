@@ -250,7 +250,7 @@ bool uf::isPandigital(const std::vector<int> &vec, int max_digit)
         if (uf::inVector(0, digits))
             return false;
         // If any numbers have digits greater than max_digit, return false
-        for (int k{max_digit+1}; k <= 9; ++k)
+        for (int k{max_digit + 1}; k <= 9; ++k)
         {
             if (uf::inVector(k, digits))
                 return false;
