@@ -46,20 +46,25 @@ namespace UsefulFunctions
 
     bool isPandigital(const std::vector<int> &vec, int max_digit = 9);
 
-    class UnorderedDigits
+    // CLASSES
+    class UnorderedDigitID
     {
     public:
         // Stores the number of each digit in this ordered list:
         // Eg. for an integer 14522999, m_digit_count = {0,1,2,0,1,1,0,0,0,3}
         std::vector<size_t> m_digit_count{0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
-        UnorderedDigits(int n)
+        UnorderedDigitID(int n)
         {
             std::vector<int> digit_list{int2digits(n)};
             for (auto elem : digit_list)
             {
                 m_digit_count[elem]++;
             }
+        }
+        bool operator==(const UnorderedDigitID &UD) const
+        {
+            return m_digit_count == UD.m_digit_count;
         }
     };
 
