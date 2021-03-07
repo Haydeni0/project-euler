@@ -192,6 +192,16 @@ namespace UsefulFunctions
             }
         }
     }
+    template <class T>
+    bool isEven(T n, typename std::enable_if<std::is_integral_v<T>>::type * = 0)
+    {
+        return (n % 2 == 0);
+    }
+    template <class T>
+    bool isOdd(T n, typename std::enable_if<std::is_integral_v<T>>::type * = 0)
+    {
+        return (n % 2 != 0);
+    }
 
 } // namespace UsefulFunctions
 
