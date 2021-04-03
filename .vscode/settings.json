@@ -84,5 +84,6 @@
         "variant": "cpp",
         "core": "cpp",
         "geometry": "cpp"
-    }
+    },
+    "python.pythonPath": "C:\\ProgramData\\Anaconda3\\python.exe"
 }
