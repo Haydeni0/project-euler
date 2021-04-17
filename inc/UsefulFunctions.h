@@ -14,6 +14,7 @@
 #include <fstream>
 #include <iterator>
 #include <numeric>
+#include <bitset>
 #include <Eigen/Dense>
 
 namespace UsefulFunctions
