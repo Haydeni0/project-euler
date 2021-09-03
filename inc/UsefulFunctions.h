@@ -47,6 +47,8 @@ namespace UsefulFunctions
 
     bool isPandigital(const std::vector<int> &vec, int max_digit = 9);
 
+    bool isPalindrome(const int val);
+
     int nextPrime(int n);
 
     // CLASSES

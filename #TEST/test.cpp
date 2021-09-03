@@ -4,6 +4,11 @@
 
 int main()
 {
+
+    int val{1221};
+
+    std::cout << uf::isPalindrome(val);
+
     return 0;
 }
 

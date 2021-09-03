@@ -275,6 +275,14 @@ bool uf::isPandigital(const std::vector<int> &vec, int max_digit)
     return true;
 }
 
+bool uf::isPalindrome(const int val)
+{
+    // Is the integer, val, a palindrome? Eg. 242 is palindromic but 48 isn't.
+    std::vector<int> val_digits{uf::int2digits(val)};
+    std::reverse(val_digits.begin(), val_digits.end());
+    return (val == uf::digits2int(val_digits));
+}
+
 int uf::nextPrime(int n)
 {
     if (n < 2)
