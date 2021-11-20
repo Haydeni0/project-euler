@@ -17,6 +17,7 @@ int main()
             std::string Qdirname{dirname + "/Q" + std::to_string(hundred*100 + j)};
             mkdir(Qdirname.c_str());
             std::string filepath{Qdirname + "/" + "main.cpp"};
+            // Copy the template main.cpp file to the rest of the directories
             std::ifstream src("main.cpp", std::ios::binary);
             std::ofstream dst(filepath, std::ios::binary);
 
