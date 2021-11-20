@@ -1,6 +1,6 @@
 {
     "code-runner.executorMap": {
-        "cpp": "cd $dir && g++ -std=c++17 -I $workspaceRoot\\inc $fileName $workspaceRoot\\inc\\*.cpp -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "cpp": "cd $dir && g++ -std=c++17 -I $workspaceRoot\\include $fileName $workspaceRoot\\include\\*.cpp -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
         "python": "$pythonPath -u $fullFileName"
     },
     "files.associations": {

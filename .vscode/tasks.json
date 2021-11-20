@@ -29,9 +29,9 @@
                 "-g",
                 "-std=c++17",
                 "-I",
-                "${workspaceFolder}\\inc",
+                "${workspaceFolder}\\include",
                 "${file}",
-                "${workspaceFolder}\\inc\\*.cpp",
+                "${workspaceFolder}\\include\\*.cpp",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],
