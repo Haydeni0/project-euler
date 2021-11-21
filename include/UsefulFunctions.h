@@ -16,6 +16,7 @@
 #include <numeric>
 #include <bitset>
 #include <Eigen/Dense>
+#include "VectorFloat.h"
 
 namespace UsefulFunctions
 {
